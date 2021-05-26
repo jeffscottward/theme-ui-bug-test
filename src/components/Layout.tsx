@@ -1,7 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { useEffect } from 'react'
 import { jsx, useThemeUI } from 'theme-ui'
-import { timing } from '../theme'
 import { Global } from '@emotion/core'
 
 type LayoutProps = {
