@@ -75,7 +75,7 @@ const Layout = ({ children }: LayoutProps) => {
             backgroundRepeat: 'no-repeat',
             backgroundSize: '100% 100%',
             backgroundAttachment: 'scroll',
-            background: theme.colors.w3hazeGradient,
+            background: 'w3hazeGradient',
           },
           'body::before': {
             display: 'none',
@@ -157,7 +157,7 @@ const Layout = ({ children }: LayoutProps) => {
             letterSpacing: '-0.0375rem',
             textTransform: 'uppercase',
             textDecoration: 'none',
-            color: theme.colors.w3TextNavTeal,
+            color: 'w3TextNavTeal',
           },
           '.bn-onboard-custom': {
             zIndex: 100000,

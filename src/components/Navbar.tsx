@@ -51,7 +51,7 @@ const Navbar = () => {
                 borderLeft: '0.125rem solid',
                 borderLeftColor: 'w3NavGrayGreen',
                 svg: {
-                  stroke: theme.colors.w3green,
+                  stroke: 'w3green',
                 },
                 '&:hover': {
                   borderLeftColor: 'w3NavHighlightTeal',
