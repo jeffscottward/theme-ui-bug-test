@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { jsx, useThemeUI } from 'theme-ui'
+import { useThemeUI } from 'theme-ui'
 import { Global } from '@emotion/react'
 
 import Layout from '../components/Layout'

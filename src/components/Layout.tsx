@@ -1,5 +1,4 @@
 /** @jsxImportSource theme-ui */
-import { jsx, useThemeUI } from 'theme-ui'
 import { Global } from '@emotion/core'
 
 type LayoutProps = {
@@ -7,7 +6,6 @@ type LayoutProps = {
 }
 
 const Layout = ({ children }: LayoutProps) => {
-  const { theme } = useThemeUI()
   return (
     <div
       className="layout"
@@ -54,10 +52,7 @@ const Layout = ({ children }: LayoutProps) => {
             margin: '0',
             padding: '0',
             overflow: 'hidden',
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: '100% 100%',
-            backgroundAttachment: 'scroll',
-            backgroundColor: theme.colors.w3hazeGradient,
+            background: 'w3hazeGradient',
           },
           'body::before': {
             display: 'none',
@@ -136,7 +131,7 @@ const Layout = ({ children }: LayoutProps) => {
             letterSpacing: '-0.0375rem',
             textTransform: 'uppercase',
             textDecoration: 'none',
-            color: theme.colors.w3TextNavTeal,
+            color: 'w3TextNavTeal',
           },
           '.bn-onboard-custom': {
             zIndex: 100000,
