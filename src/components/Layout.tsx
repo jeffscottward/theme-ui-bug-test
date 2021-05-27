@@ -1,11 +1,31 @@
-/** @jsxImportSource theme-ui */
+/** @jsxImportSource theme-ui **/
+import { useEffect } from 'react'
+import { useThemeUI } from 'theme-ui'
+import { timing } from '../theme'
 import { Global } from '@emotion/react'
+import { useStateValue } from '../state/state'
+import useSWR from 'swr'
 
 type LayoutProps = {
   children?: any
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const { theme } = useThemeUI()
+  const [, dispatch] = useStateValue()
+  const { data: apis, error } = useSWR('http://localhost:3001/apis/active')
+  // https://github.com/system-ui/theme-ui/issues/834#issuecomment-625865772
+  const pageLevelAnimationTiming = timing[3] +'s'
+  
+  useEffect(() => {
+    if(apis && apis.apis) {
+      dispatch({
+        type: 'SET_AVAILABLE_APIS',
+        payload: apis.apis,
+      })
+    }
+  }, [apis])
+
   return (
     <div
       className="layout"
@@ -52,7 +72,10 @@ const Layout = ({ children }: LayoutProps) => {
             margin: '0',
             padding: '0',
             overflow: 'hidden',
-            background: 'w3hazeGradient',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: '100% 100%',
+            backgroundAttachment: 'scroll',
+            background: theme.colors.w3hazeGradient,
           },
           'body::before': {
             display: 'none',
@@ -96,6 +119,9 @@ const Layout = ({ children }: LayoutProps) => {
             paddingLeft: '1rem',
             paddingRight: '1rem'
           },
+          '.contents.animate': {
+            animation: `fadeIn ${pageLevelAnimationTiming}, shift ${pageLevelAnimationTiming}`,
+          },
           'ul, ol, li': {
             margin: '0',
             padding: '0',
@@ -131,7 +157,7 @@ const Layout = ({ children }: LayoutProps) => {
             letterSpacing: '-0.0375rem',
             textTransform: 'uppercase',
             textDecoration: 'none',
-            color: 'w3TextNavTeal',
+            color: theme.colors.w3TextNavTeal,
           },
           '.bn-onboard-custom': {
             zIndex: 100000,

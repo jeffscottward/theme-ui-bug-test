@@ -1,25 +1,43 @@
-/** @jsxImportSource theme-ui */
-import { useThemeUI } from 'theme-ui'
-import { Global } from '@emotion/react'
+/** @jsxImportSource theme-ui **/
+import { Flex } from 'theme-ui'
+import { useStateValue } from '../state/state'
+
 import Layout from '../components/Layout'
+import SortNav from '../components/SortNav'
+import ApiGrid from '../components/ApiGrid'
+import Navbar from '../components/Navbar'
+import Header from '../components/Header'
+import BGWave from '../components/BGWave'
+import BottomSpace from '../components/BottomSpace'
+import Card from '../components/Card'
 
 const Home = () => {
-  const {theme} = useThemeUI()
-  console.log({themeInComponentHead: theme})
+  const [{ dapp, search }] = useStateValue()  
   return (
     <Layout>
-      <h1>Test</h1>
-      <Global
-        styles={(themeX) => {
-          console.log({themeInGlobal: theme})
-          // bg: theme.colors.w3shade0 is not compiling in dev tools
-          return ({
-            body: {
-              background: themeX.colors.w3shade0,
-            },
-          })
-        }}
-      />
+      <Flex>
+        <Navbar />
+        <main>
+          <div className="contents animate">
+            <Header title="Browse APIs" />
+            <section className="content">
+              <SortNav />
+              <ApiGrid>
+                {search !== undefined && search.sortedApi !== -1 ? (
+                  <Card api={search.sortedApi[0]} boxShadowOn />
+                ) : (
+                  dapp?.apis &&
+                  dapp.apis.map((api, idx) => (
+                    <Card api={api} boxShadowOn key={idx + '-api'} />
+                  ))
+                )}
+              </ApiGrid>
+            </section>
+            <BottomSpace />
+          </div>
+        </main>
+      </Flex>
+      <BGWave light />
     </Layout>
   )
 }
