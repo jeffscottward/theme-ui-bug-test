@@ -111,6 +111,23 @@ const Layout = ({ children }: LayoutProps) => {
             padding: 0,
             border: 'none',
           },
+          code: {
+            m: 0,
+            fontFamily: 'monospace',
+          },
+          table: {
+            width: '100%',
+            borderCollapse: 'separate',
+            borderSpacing: 0,
+          },
+          th: {
+            textAlign: 'left',
+            borderBottomStyle: 'solid',
+          },
+          td: {
+            textAlign: 'left',
+            borderBottomStyle: 'solid',
+          },
           '.contents': {
             maxWidth: '76.5rem',
             margin: 'auto',
@@ -162,6 +179,23 @@ const Layout = ({ children }: LayoutProps) => {
           '.bn-onboard-custom': {
             zIndex: 100000,
           },
+          pre: {
+            overflowX: 'auto',
+            border: '2px solid rgba(205, 208, 227, 0.295455)',
+            padding: '.75rem',
+            borderRadius: '8px',
+            marginTop: 0,
+            fontFamily: 'monospace',
+            fontStyle: 'normal',
+            fontWeight: 'normal',
+            fontSize: '14px',
+            lineHeight: '140.62%',
+            color: '#000000',
+            code: {
+              color: 'inherit',
+            },
+          },
+         
         })}
       />
     </div>
