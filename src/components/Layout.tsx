@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import { Global } from '@emotion/core'
+import { Global } from '@emotion/react'
 
 type LayoutProps = {
   children?: any
