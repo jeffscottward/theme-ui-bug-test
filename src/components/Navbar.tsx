@@ -82,8 +82,8 @@ const Navbar = () => {
                   : ''
               }
             >
-              <Link href="/" sx={{ alignItems: 'center' }}>
-                <a>
+              <Link href="/">
+                <a sx={{ alignItems: 'center' }}>
                   <APIs />
                   <span sx={{ height: 2 }}>&nbsp;</span>
                   <span className="text-nav">API's</span>
