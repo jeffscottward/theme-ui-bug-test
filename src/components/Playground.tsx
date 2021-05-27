@@ -173,7 +173,7 @@ const Playground = ({ api }: PlaygroundProps) => {
           p: '1.5rem',
           backgroundColor: 'w3shade2',
           '*': { display: 'flex' },
-          label: {
+          'label': {
             display: 'none',
           },
         }}
@@ -302,7 +302,7 @@ const Playground = ({ api }: PlaygroundProps) => {
                 bg: 'white', 
                 p: 3,
                 pt: '0.6rem',
-                label: {
+                'label': {
                   fontSize: '.9rem'
                 }
               }}

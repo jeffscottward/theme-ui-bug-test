@@ -235,7 +235,7 @@ const PublishAPI = () => {
             my: 3,
             mb: 2,
           },
-          label: {
+          'label': {
             width: '13.75rem',
             mr: '2.75rem',
             mb: 2,
